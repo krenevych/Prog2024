@@ -6,4 +6,5 @@ n = int(n)
 n = float(input("Введіть число: "))
 
 
+
 print(n)
