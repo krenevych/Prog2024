@@ -12,6 +12,7 @@ while i <= N-1:
     # print(i)
     if N % i == 0:  # якщо поділилося без остачі,
         is_prime = False  # то число не просте
+        break
 
     i += 1   # i = i + 1
 
