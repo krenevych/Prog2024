@@ -16,16 +16,19 @@ def writeMatrix(M):
 
 
 def max_in_matrix(M):
+    my_max = M[0][0]
     for i in range(len(M)):
         for j in range(len(M[0])):
-            print(M[i][j], end=" ")
-        print()
+            if M[i][j] > my_max:
+                my_max = M[i][j]
+    return my_max
 
 ##### main ##########
 
 A = readMatrix(3)
 print(A)
 m = max_in_matrix(A)
+print(m)
 
 # A =        0    1     2
     # [
