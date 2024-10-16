@@ -8,10 +8,18 @@ def readMatrix(n): # n - кількість рядків матриці
 
     return M
 
+def max_in_matrix(M):
+
+    for i in range(len(M)):
+        for j in range(len(M[0])):
+            print(M[i][j], end=" ")
+        print()
+
 ##### main ##########
 
 A = readMatrix(3)
 print(A)
+m = max_in_matrix(A)
 
 # A =        0    1     2
     # [
@@ -20,4 +28,4 @@ print(A)
 # 2    #   [0.0, 9.0, 2.0]
     #   ]
 
-print(A[1][2])
+# print(A[1][2])
