@@ -8,8 +8,14 @@ def readMatrix(n): # n - кількість рядків матриці
 
     return M
 
-def max_in_matrix(M):
+def writeMatrix(M):
+    for i in range(len(M)):
+        for j in range(len(M[0])):
+            print(M[i][j], end=" ")
+        print()
 
+
+def max_in_matrix(M):
     for i in range(len(M)):
         for j in range(len(M[0])):
             print(M[i][j], end=" ")
