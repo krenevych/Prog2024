@@ -1,5 +1,3 @@
-
-
 def part(n, current):
     if n == 0:
         print(*current)
