@@ -1,0 +1,102 @@
+Implement your adapter and view holder
+Once you determine your layout, you need to implement your Adapter and ViewHolder. These two classes work together to define how your data is displayed. The ViewHolder is a wrapper around a View that contains the layout for an individual item in the list. The Adapter creates ViewHolder objects as needed and also sets the data for those views. The process of associating views to their data is called binding.
+
+When you define your adapter, you override three key methods:
+
+onCreateViewHolder(): RecyclerView calls this method whenever it needs to create a new ViewHolder. The method creates and initializes the ViewHolder and its associated View, but does not fill in the view's contents—the ViewHolder has not yet been bound to specific data.
+
+onBindViewHolder(): RecyclerView calls this method to associate a ViewHolder with data. The method fetches the appropriate data and uses the data to fill in the view holder's layout. For example, if the RecyclerView displays a list of names, the method might find the appropriate name in the list and fill in the view holder's TextView widget.
+
+getItemCount(): RecyclerView calls this method to get the size of the dataset. For example, in an address book app, this might be the total number of addresses. RecyclerView uses this to determine when there are no more items that can be displayed.
+
+Here's a typical example of a simple adapter with a nested ViewHolder that displays a list of data. In this case, the RecyclerView displays a simple list of text elements. The adapter is passed an array of strings containing the text for the ViewHolder elements.
+
+Kotlin
+Java
+
+class CustomAdapter(private val dataSet: Array<String>) :
+        RecyclerView.Adapter<CustomAdapter.ViewHolder>() {
+
+    /**
+     * Provide a reference to the type of views that you are using
+     * (custom ViewHolder)
+     */
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val textView: TextView
+
+        init {
+            // Define click listener for the ViewHolder's View
+            textView = view.findViewById(R.id.textView)
+        }
+    }
+
+    // Create new views (invoked by the layout manager)
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
+        // Create a new view, which defines the UI of the list item
+        val view = LayoutInflater.from(viewGroup.context)
+                .inflate(R.layout.text_row_item, viewGroup, false)
+
+        return ViewHolder(view)
+    }
+
+    // Replace the contents of a view (invoked by the layout manager)
+    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
+
+        // Get element from your dataset at this position and replace the
+        // contents of the view with that element
+        viewHolder.textView.text = dataSet[position]
+    }
+
+    // Return the size of your dataset (invoked by the layout manager)
+    override fun getItemCount() = dataSet.size
+
+}
+The layout for the each view item is defined in an XML layout file, as usual. In this case, the app has a text_row_item.xml file like this:
+
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/list_item_height"
+    android:layout_marginLeft="@dimen/margin_medium"
+    android:layout_marginRight="@dimen/margin_medium"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/element_text"/>
+</FrameLayout>
+Next steps
+The following code snippet shows how you can use the RecyclerView.
+
+Kotlin
+Java
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val dataset = arrayOf("January", "February", "March")
+        val customAdapter = CustomAdapter(dataset)
+
+        val recyclerView: RecyclerView = findViewById(R.id.recycler_view)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = customAdapter
+
+    }
+
+}
+The library also offers many ways to customize your implementation. For more information, see Advanced RecyclerView customization.
+
+Additional resources
+For more information about testing on Android, consult the following resources.
+
+Sample apps
+RecyclerView sample app (Kotlin)
+
+RecyclerView sample app (Java)
+
+Sunflower demo app
