@@ -7,20 +7,21 @@ def is_prime(N):  # N - число яке ми будемо перевіряти
 
 
 ########### Головна програма ###########
-lst = [int(el) for el in input().split()]
+if __name__ == '__main__':
+    lst = [int(el) for el in input().split()]
 
-# Визначити ті з чисел, які є простими
+    # Визначити ті з чисел, які є простими
 
-for n in lst:
-    # код перевірки чи число n є простим
-    if is_prime(n):
-        print(n)
+    for n in lst:
+        # код перевірки чи число n є простим
+        if is_prime(n):
+            print(n)
 
-#
-p13 = is_prime(13)
-print(p13)
-p12 = is_prime(12)
-print(p12)
+    #
+    p13 = is_prime(13)
+    print(p13)
+    p12 = is_prime(12)
+    print(p12)
 
 
 
