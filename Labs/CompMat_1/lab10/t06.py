@@ -31,19 +31,20 @@ def multiply(a, b):
 
 
 ######## main ############
-n_a, m_a = [int(el) for el in input().split()]
-a = readMatrix(n_a)
-n_b, m_b = [int(el) for el in input().split()]
-b = readMatrix(n_b)
+if __name__ == '__main__':
+    n_a, m_a = [int(el) for el in input().split()]
+    a = readMatrix(n_a)
+    n_b, m_b = [int(el) for el in input().split()]
+    b = readMatrix(n_b)
 
-c = multiply(a, b)
-if c is None:
-    print(-1)
-else:
-    print(len(c), len(c[0]))
-    writeMatrix(c)
-#
-# print(n_a, m_a)
-# print(n_b, m_b)
-# writeMatrix(a)
-# writeMatrix(b)
+    c = multiply(a, b)
+    if c is None:
+        print(-1)
+    else:
+        print(len(c), len(c[0]))
+        writeMatrix(c)
+    #
+    # print(n_a, m_a)
+    # print(n_b, m_b)
+    # writeMatrix(a)
+    # writeMatrix(b)
