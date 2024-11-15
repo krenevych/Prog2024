@@ -6,4 +6,13 @@ wallet = {
 
 max_nominal = 167
 
-wallet[56]
+cash = 0
+for nominal in range(1, max_nominal + 1):
+    try:
+        cash = cash + nominal * wallet[nominal]
+    except KeyError:
+        pass
+
+# wallet[56]
+
+print(cash)
