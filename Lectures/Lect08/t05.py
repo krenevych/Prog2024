@@ -10,9 +10,9 @@ def max2(a, b):
 def max3(a, b, c):
     return max2(max2(a, b), c)
 
+if __name__ == '__main__':
+    # print(max2(45, 67))
 
-# print(max2(45, 67))
+    max_3 = max3(2, 5, 4)
 
-max_3 = max3(2, 5, 4)
-
-print(max_3)
+    print(max_3)
