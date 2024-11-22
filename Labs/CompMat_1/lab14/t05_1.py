@@ -13,8 +13,9 @@ def readPolinon(file):
     except FileNotFoundError: # якщо файл не знайдений
         print("File not found")
         return None
-    except ValueError:
+    except ValueError as err:
         print("Something went wrong")
+        print(err)
         return None
 
 
