@@ -11,7 +11,7 @@ class QuadraticEquation:
         # # бо може порушитися цілісність даних, отже робимо метод
 
     def __str__(self):
-        return f"{self.a}x^2 + {self.b}x + {self.c} = 0"
+        return f"{super().__str__()}: {self.a}x^2 + {self.b}x + {self.c} = 0"
 
     @property
     def discriminant(self):
@@ -77,3 +77,12 @@ if __name__ == '__main__':  # блок тестування класу
     eq6 = QuadraticEquation(1, -5, 6)
     print(eq6)
     print(eq6.solve())
+
+    eq7 = QuadraticEquation(0, 0, 0)
+    eq8 = QuadraticEquation(0, 0, 0)
+    print(eq7)
+    print(eq8)
+
+    eq7.a = 5
+    print(eq7)
+    print(eq8)
