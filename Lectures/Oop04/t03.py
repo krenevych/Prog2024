@@ -10,13 +10,12 @@ class Triangle:
         self.__b = b  # атрибут чи поле - друга сторона трикутника
         self.__c = c  # атрибут чи поле - третя сторона трикутника
 
-    def get_b(self):
-        return self.__b
+    @property
+    def a(self):
+        return self.__a
 
-    def get_c(self):
-        return self.__c
-
-    def set_a(self, a):
+    @a.setter
+    def a(self, a):
 
         # Має бути перевірка, чи можемо ми створити трикутник
         # зі сторонами a, self._b, self._c
@@ -24,7 +23,12 @@ class Triangle:
 
         self.__a = a
 
-    def set_b(self, b):
+    @property
+    def b(self):
+        return self.__b
+
+    @b.setter
+    def b(self, b):
 
         # Має бути перевірка, чи можемо ми створити трикутник
         # зі сторонами self._a, b, self._c
@@ -32,7 +36,12 @@ class Triangle:
 
         self.__b = b
 
-    def set_c(self, c):
+    @property
+    def c(self):
+        return self.__c
+
+    @c.setter
+    def c(self, c):
         # Має бути перевірка, чи можемо ми створити трикутник
         # зі сторонами self._a, self._b, c
         assert self.check_triangle_existence(self.__a, self.__b, c), "Трикутник з такими сторонами не існує"
@@ -47,5 +56,17 @@ if __name__ == '__main__':
     t1 = Triangle(3, 4, 5)
     print("==== triangle =====")
     t1.print()
+
+    print(t1.a)  # викликається функція def a(self)
+    print(t1.b)  # викликається функція def b(self)
+    print(t1.c)  # викликається функція def c(self)
+
+    t1.a = 5
+    t1.b = 6
+    t1.c = 7
+
+    print("==== triangle after change =====")
+    t1.print()
+
 
 
