@@ -1,6 +1,7 @@
 class Triangle:
 
-    def check_triangle_existence(self, a, b, c):
+    @staticmethod
+    def check_triangle_existence(a, b, c):
         return a + b > c and a + c > b and b + c > a
 
     def __init__(self, a, b, c):
@@ -53,20 +54,10 @@ class Triangle:
 
 
 if __name__ == '__main__':
-    t1 = Triangle(3, 4, 5)
-    print("==== triangle =====")
+    is_triangle_exist = Triangle.check_triangle_existence(4, 5, 6)
+    print(is_triangle_exist)
+
+    t1 = Triangle(4, 5, 6)
     t1.print()
-
-    print(t1.a)  # викликається функція def a(self)
-    print(t1.b)  # викликається функція def b(self)
-    print(t1.c)  # викликається функція def c(self)
-
-    t1.a = 5
-    t1.b = 6
-    t1.c = 7
-
-    print("==== triangle after change =====")
-    t1.print()
-
 
 
