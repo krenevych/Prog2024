@@ -8,7 +8,7 @@ class Triangle:
         self.__vertex1 = (x1, y1)  # позиція другої відносно першої вершини
         self.__vertex2 = (x2, y2)  # позиція третьої відносно першої вершини
 
-        self.color = "black"     # колір трикутника за промовчанням
+        self.__color = "black"     # колір трикутника за промовчанням
 
     @property
     def position(self):
@@ -19,6 +19,15 @@ class Triangle:
         assert isinstance(pos, (tuple, list)) and len(pos) == 2
         self.__position = pos
 
+    @property
+    def color(self):
+        return self.__color
+
+    @color.setter
+    def color(self, color):
+        # має бути перевірка, чи параметр color дійсно color
+        self.__color = color
+
     def __str__(self):
         return f"Triangle: {self.__position, self.__vertex1, self.__vertex2}"
 
@@ -26,6 +35,7 @@ class Triangle:
         up() # перестраховка, якщо пензлик був опущений
 
         goto(self.__position)
+        pencolor(self.__color)
 
         down()
 
@@ -54,6 +64,7 @@ if __name__ == '__main__':
     # t.position = (100, 100, 100)
     # t.position = "green"
     t.position = (100, 150)
+    t.color = "blue"
     t.draw()
 
 
