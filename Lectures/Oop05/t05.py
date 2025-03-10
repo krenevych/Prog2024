@@ -1,4 +1,4 @@
-# агрегація
+# композиція
 
 class Wheel:
 
@@ -9,8 +9,8 @@ class Wheel:
         return self.properties
 
 class Car:
-    def __init__(self, wheel: Wheel):
-        self.wheel = wheel
+    def __init__(self):
+        self.wheel = Wheel("17'', forged, Michellen")
 
     def drive(self):
         print("driving...")
@@ -20,10 +20,9 @@ class Car:
         print("Car is deleted")
 
 if __name__ == '__main__':
-    w = Wheel("17'', forged, Michellen")
-    c = Car(w)
+    c = Car()
     c.drive()
-
     del c
-    # c.drive()
-    print(w)
+    print(c.wheel)
+
+
