@@ -5,51 +5,69 @@ from turtle import * # Підключаємо модуль turtle
 
 class Rectangle(Figure):
 
-    def __init__(self, x1, y1):
+    def __init__(self, *p):
         super().__init__()
 
-        self.__vertex2 = (x1, y1)   # позиція протилежної діагоналі прямокутника
+        # self.__vertex0 = (x0, y0)  # позиція другої відносно першої вершини
+        # self.__vertex1 = (x1, y0)  # позиція другої відносно першої вершини
+        # self.__vertex2 = (x1, y1)  # позиція другої відносно першої вершини
+        # self.__vertex3 = (x0, y1)  # позиція протилежної діагоналі прямокутника
+
+        if len(p) == 4:
+            self.__vertex0 = (p[0], p[1])  # позиція третьої відносно першої вершини
+            self.__vertex1 = (p[2], p[1])  # позиція другої відносно першої вершини
+            self.__vertex2 = (p[2], p[3])  # позиція третьої відносно першої вершини
+            self.__vertex3 = (p[0], p[3])  # позиція третьої відносно першої вершини
+        elif len(p) == 2:
+            self.__vertex0 = (0   , 0   )  # позиція третьої відносно першої вершини
+            self.__vertex1 = (p[0], 0   )  # позиція другої відносно першої вершини
+            self.__vertex2 = (p[0], p[1])  # позиція третьої відносно першої вершини
+            self.__vertex3 = (0   , p[1])  # позиція третьої відносно першої вершини
+        else:
+            raise ValueError("Triangle: incorrect creation parameters")
 
     def draw(self):
         up()  # перестраховка, якщо пензлик був опущений
 
         pencolor(self.color)
 
-        v0 = self.position
-        v1 = (self.__vertex2[0], 0)
-        v2 = self.__vertex2
-        v3 = (0, self.__vertex2[1])
+        v0 = self._calc_position(self.__vertex0)
+        v1 = self._calc_position(self.__vertex1)
+        v2 = self._calc_position(self.__vertex2)
+        v3 = self._calc_position(self.__vertex3)
 
-        setpos(self._calc_position(v0))
+        setpos(v0)
         down()
-        setpos(self._calc_position(v1))
-        setpos(self._calc_position(v2))
-        setpos(self._calc_position(v3))
-        setpos(self._calc_position(v0))
+        setpos(v1)
+        setpos(v2)
+        setpos(v3)
+        setpos(v0)
 
         up()
 
 
 if __name__ == '__main__':
-    t = Rectangle(200, 100)
+    t = Rectangle(100, 100, 200, 200)
+    t2 = Rectangle(200, 100)
 
     reset()  # Ініціалізуємо режим малювання
     speed(1)
     # тут малюємо
     t.draw()
+    t2.draw()
 
-    # # t.position = (100, 150)
-    # # t.scale = (2, 2)
+    # t.position = (100, 150)
+    t.scale = (2, 1)
     t.rotation = math.radians(30)
     t.color = "blue"
-    # t.pivot = (50, 30)
-    t.draw()
-    #
-    # t.position = (100, 150)
-    # t.scale = (2, 2)
-    t.rotation = math.radians(45)
-    t.color = "red"
     t.pivot = (100, 0)
     t.draw()
+    #
+    # # t.position = (100, 150)
+    # # t.scale = (2, 2)
+    # t.rotation = math.radians(45)
+    # t.color = "red"
+    # t.pivot = (100, 0)
+    # t.draw()
 
     mainloop()       # Затримуємо вікно на екрані
