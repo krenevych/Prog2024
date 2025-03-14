@@ -17,6 +17,7 @@ class Figure:
 
     @rotation.setter
     def rotation(self, rotation):    # значення в радіанах
+        assert isinstance(rotation, (float, int))
         self.__rotation = rotation
 
     @property
@@ -25,6 +26,7 @@ class Figure:
 
     @scale.setter
     def scale(self, scale):    # значення в радіанах
+        assert isinstance(scale, (tuple, list)) and len(scale) == 2
         self.__scale = scale
 
     @property
@@ -33,6 +35,7 @@ class Figure:
 
     @pivot.setter
     def pivot(self, pivot):
+        assert isinstance(pivot, (tuple, list)) and len(pivot) == 2
         self.__pivot = pivot
 
     @property
