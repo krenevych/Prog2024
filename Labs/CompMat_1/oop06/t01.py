@@ -115,4 +115,11 @@ if __name__ == '__main__':
     t.pivot = (50, 30)
     t.draw()
 
+    # t.position = (100, 150)
+    t.scale = (2, 2)
+    t.rotation = math.radians(45)
+    t.color = "red"
+    t.pivot = (100, 100)
+    t.draw()
+
     mainloop()       # Затримуємо вікно на екрані
