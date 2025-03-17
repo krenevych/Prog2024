@@ -12,7 +12,8 @@ class Pet:
 class Cat(Pet):
 
     def __init__(self, name, master):
-        super().__init__(name) # виклик конструктора базового класу - ОБОВʼЯЗКОВО!
+        # super().__init__(name) # виклик конструктора базового класу - ОБОВʼЯЗКОВО!
+        Pet.__init__(self, name) # виклик конструктора базового класу, з явним указанням батьківського класу.
         self.master_name = master
 
     def __str__(self):
