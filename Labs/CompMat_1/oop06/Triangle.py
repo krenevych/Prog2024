@@ -11,24 +11,20 @@ class Triangle(Figure):
         self.__vertex2 = (x2, y2)  # позиція третьої відносно першої вершини
 
     def draw(self):
-        up() # перестраховка, якщо пензлик був опущений
+        up()  # перестраховка, якщо пензлик був опущений
 
-        goto(self._calc_position(self.position))
         pencolor(self.color)
 
+        v0 = (0, 0)
+        v1 = self.__vertex1
+        v2 = self.__vertex2
+
+        setpos(self._calc_position(v0))
         down()
+        setpos(self._calc_position(v1))
+        setpos(self._calc_position(v2))
+        setpos(self._calc_position(v0))
 
-        # зміщені координати для vertex1
-        # x, y = self.__position[0] + self.__vertex1[0], self.__position[1] + self.__vertex1[1]
-        x, y = self._calc_position(self.__vertex1)
-        setpos(x, y)
-
-        # зміщені координати для vertex1
-        # x, y = self.__position[0] + self.__vertex2[0], self.__position[1] + self.__vertex2[1]
-        x, y = self._calc_position(self.__vertex2)
-        setpos(x, y)
-
-        setpos(self._calc_position(self.position))
         up()
 
 
@@ -41,7 +37,7 @@ if __name__ == '__main__':
     # тут малюємо
     t.draw()
 
-    # t.position = (100, 150)
+    t.position = (100, 150)
     # t.scale = (2, 2)
     t.rotation = math.radians(30)
     t.color = "blue"
