@@ -4,9 +4,10 @@ from Labs.CompMat_1.oop06.Figure import Figure
 from turtle import * # Підключаємо модуль turtle
 
 class Triangle(Figure):
-    def __init__(self, x1, y1, x2, y2):
+    def __init__(self, x0, y0, x1, y1, x2, y2):
         super().__init__()
 
+        self.__vertex0 = (x0, y0)  # позиція другої відносно першої вершини
         self.__vertex1 = (x1, y1)  # позиція другої відносно першої вершини
         self.__vertex2 = (x2, y2)  # позиція третьої відносно першої вершини
 
@@ -15,7 +16,7 @@ class Triangle(Figure):
 
         pencolor(self.color)
 
-        v0 = (0, 0)
+        v0 = self.__vertex0
         v1 = self.__vertex1
         v2 = self.__vertex2
 
@@ -29,7 +30,7 @@ class Triangle(Figure):
 
 
 if __name__ == '__main__':
-    t = Triangle(100, 0, 100, 100)
+    t = Triangle(0, 0, 100, 0, 100, 100)
     print(t)
 
     reset()  # Ініціалізуємо режим малювання
