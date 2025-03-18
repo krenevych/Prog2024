@@ -15,7 +15,7 @@ class Rectangle(Figure):
 
         pencolor(self.color)
 
-        v0 = self.position
+        v0 = (0                , 0)
         v1 = (self.__vertex2[0], 0)
         v2 = self.__vertex2
         v3 = (0, self.__vertex2[1])
@@ -38,18 +38,18 @@ if __name__ == '__main__':
     # тут малюємо
     t.draw()
 
-    # # t.position = (100, 150)
-    # # t.scale = (2, 2)
-    t.rotation = math.radians(30)
-    t.color = "blue"
-    # t.pivot = (50, 30)
-    t.draw()
-    #
     # t.position = (100, 150)
     # t.scale = (2, 2)
-    t.rotation = math.radians(45)
-    t.color = "red"
-    t.pivot = (100, 0)
+    t.rotation = math.radians(30)
+    t.color = "blue"
+    t.pivot = (-50, -50)
     t.draw()
+    #
+    # # t.position = (100, 150)
+    # # t.scale = (2, 2)
+    # t.rotation = math.radians(45)
+    # t.color = "red"
+    # t.pivot = (100, 0)
+    # t.draw()
 
     mainloop()       # Затримуємо вікно на екрані
