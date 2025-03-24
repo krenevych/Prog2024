@@ -50,5 +50,13 @@ if __name__ == '__main__':
     # car.scale = (2, 2)
     car.draw()
 
+    # ==============
+    pivot_pos = (-50, 200)
+    pivot.position = pivot_pos
+    pivot.draw()
+
+    car.color = "green"
+    car.pivot = pivot_pos
+    car.draw()
 
     mainloop()       # Затримуємо вікно на екрані
