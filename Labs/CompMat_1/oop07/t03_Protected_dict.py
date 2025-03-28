@@ -37,6 +37,15 @@ class ProtectedDictInt(dict):
 
         return res
 
+    def __sub__(self, other):
+        assert isinstance(other, int)
+        res = ProtectedDictInt()
+        for k, v in self.items():
+            if k != other:
+                res[k] = v
+        return res
+
+
 if __name__ == '__main__':
     p = ProtectedDictInt()
     p[4] = "Hello"
@@ -66,3 +75,6 @@ if __name__ == '__main__':
     #
     p4 = p2 + p3
     print(p4)
+
+    p5 = p4 - 2
+    print(p5)
