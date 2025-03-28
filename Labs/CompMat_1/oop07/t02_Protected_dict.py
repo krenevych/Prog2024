@@ -29,6 +29,9 @@ class ProtectedDictInt:
     def __str__(self):
         return str(self.__inner_dict)
 
+    def __contains__(self, key):
+        return key in self.__inner_dict
+
 if __name__ == '__main__':
     # d = {}
     # d[4] = "Hello"
@@ -40,9 +43,11 @@ if __name__ == '__main__':
     p = ProtectedDictInt()
     p[4] = "Hello"
     print(p)
-    p[4] = "World" # виключення, бо змінювати не можна
-    print(p)
-    p["Hello"] = "World" # виключення, бо ключ не ціле
-    print(p)
+    # p[4] = "World" # виключення, бо змінювати не можна
+    # print(p)
+    # p["Hello"] = "World" # виключення, бо ключ не ціле
+    # print(p)
 
     # p.update({"hello": "world"})
+
+    print(4 in p)
