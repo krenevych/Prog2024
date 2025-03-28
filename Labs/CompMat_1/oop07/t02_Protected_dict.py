@@ -44,3 +44,5 @@ if __name__ == '__main__':
     print(p)
     p["Hello"] = "World" # виключення, бо ключ не ціле
     print(p)
+
+    p.update({"hello": "world"})
