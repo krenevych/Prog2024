@@ -45,9 +45,9 @@ class ProtectedDictInt:
 if __name__ == '__main__':
 
     p = ProtectedDictInt()
-    p[4] = "Hello"
     p[14] = "World"
-    p[123] = 123
+    p[4] = "Hello"
+    p[123] = "123"
     print(p)
 
     for i in p:
