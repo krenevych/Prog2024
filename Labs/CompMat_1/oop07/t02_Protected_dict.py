@@ -29,6 +29,9 @@ class ProtectedDictInt:
     def __str__(self):
         return str(self.__inner_dict)
 
+    def __repr__(self):
+        return str(self)
+
     def __contains__(self, key):
         return key in self.__inner_dict
 
