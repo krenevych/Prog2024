@@ -1,7 +1,5 @@
 # raise ValueError("Ключ має бути цілого типу")
 # raise ValueError("Такий ключ вже є у словнику")
-from pyexpat.errors import messages
-
 
 class ProtectedDictError(Exception):
     pass
