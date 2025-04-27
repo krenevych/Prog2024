@@ -1,4 +1,5 @@
-from Labs.CompMat_1.oop12.ProtectedDictException import ProtectedDictIntError, ProtectedDictKeyAlreadyExists
+from Labs.CompMat_1.oop12.ProtectedDictException import ProtectedDictIntError, ProtectedDictKeyAlreadyExists, \
+    ProtectedDictError
 from Labs.CompMat_1.oop12.ProtectedDictIntIterator import ProtectedDictIntIterator
 
 
@@ -46,6 +47,20 @@ if __name__ == '__main__':
         p[4] = "Hello"
         p[123] = "123"
         print(p)
+
+    # except ProtectedDictError as er:
+    #     print("something went wrong")
+    #     print(type(er))
+    #
+    #     er_type = type(er)
+    #     er_check = isinstance(er, ProtectedDictIntError)
+    #
+    #     if isinstance(er, ProtectedDictKeyAlreadyExists):
+    #         print("Ключ вже є в словнику")
+    #     # elif isinstance(er, ProtectedDictInt):
+    #     elif isinstance(er, ProtectedDictIntError):
+    #         print("Ключ не цілиий")
+
     except ProtectedDictKeyAlreadyExists as er:
         print(type(er), er)
     except ProtectedDictIntError as er:
