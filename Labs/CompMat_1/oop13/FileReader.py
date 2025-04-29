@@ -20,7 +20,7 @@ class FileReader:
             observer.onReceive(line)
 
     def read(self):
-        with open(self.filename, 'r') as f:
+        with open(self.filename, 'r', encoding="utf-8") as f:
             for line in f:
                 self.notify(line)
                 # line = line.rstrip()
